@@ -44,12 +44,12 @@ class ViewComposerProvider extends ServiceProvider {
 		});
 
 		view()->composer('frontend.header', function ($view) {
-			$view->with(['categories' => Category::whereNull('parent_id')->get()]);
+			$view->with(['categories' => Category::whereNull('parent_id')->where('slug', '!=', 'diem-ban')->get()]);
 
 		});
 
 		view()->composer('frontend.footer', function ($view) {
-			$view->with(['categories' => Category::whereNull('parent_id')->get()]);
+			$view->with(['categories' => Category::whereNull('parent_id')->where('slug', '!=', 'diem-ban')->get()]);
 
 		});
 
