@@ -33,7 +33,7 @@
                                     <td>{{$video->title}}</td>
                                     <td>{{$video->url}}</td>
                                     <td>{{($video->is_video) ? 'Yes' : 'No'}}</td>
-                                    <td><img src="{{url('image-cached/110x70', $video->image)}}" /></td>
+                                    <td><img src="{{url('t/110x70', $video->image)}}" /></td>
                                     <td>
                                         <button id-attr="{{$video->id}}" class="btn btn-primary btn-sm edit-video"  type="button">Sửa</button>
                                         <br>

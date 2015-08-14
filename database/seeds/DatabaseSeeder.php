@@ -20,9 +20,17 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 		//$this->call('PostTableSeeder');
-		$this->call('ClearSeeder');
+		$this->call('RecreateCategories');
 	}
 
+}
+
+class RecreateCategories extends Seeder {
+    public function run(){
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('categories')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    }
 }
 
 class ClearSeeder extends Seeder {

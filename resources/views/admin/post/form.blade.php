@@ -30,7 +30,7 @@
             <div class="form-group">
                 {!! Form::label('image', 'Ảnh đại diện cho bài viết') !!}
                 @if ($post->image)
-                    <img src="{{url('image-cached/120x120/' . $post->image)}}" />
+                    <img src="{{url('t/120x120/' . $post->image)}}" />
                     <hr>
                 @endif
                 {!! Form::file('image', null, ['class' => 'form-control']) !!}
@@ -65,6 +65,11 @@
                 {!! Form::label('tag_list', 'Từ khóa') !!}
                 {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
             </div>
+
+                <div class="form-group">
+                    {!! Form::label('city', 'City - Dùng cho phân phối') !!}
+                    {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                </div>
 
             <div class="form-group">
                 {!! Form::label('status', 'Xuất bản') !!}

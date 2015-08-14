@@ -20,7 +20,7 @@
             <div class="form-group">
                 {!! Form::label('image', 'Ảnh đại diện cho Video') !!}
                 @if ($video->image)
-                    <img src="{{url('image-cached/120x120/' . $video->image)}}"/>
+                    <img src="{{url('t/120x120/' . $video->image)}}"/>
                     <hr>
                 @endif
                 {!! Form::file('image', null, ['class' => 'form-control']) !!}
@@ -45,7 +45,7 @@
 
 
                 <div class="form-group">
-                    {!! Form::label('is_video', 'Is Video?') !!}
+                    {!! Form::label('is_video', 'Is Hot?') !!}
                     {!! Form::checkbox('is_video', null, null) !!}
                 </div>
 

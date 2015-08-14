@@ -25,6 +25,7 @@ class Post extends Model implements SluggableInterface {
         'desc',
         'content',
         'image',
+        'city',
         'status'
     ];
 
@@ -87,6 +88,7 @@ class Post extends Model implements SluggableInterface {
         return Post::where('category_id', $this->category_id)
              ->where('id', '!=', $this->id)
              ->where('status', true)
+             ->limit(6)
              ->get();
     }
 

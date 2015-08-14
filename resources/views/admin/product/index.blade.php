@@ -29,7 +29,7 @@
                                 <tr>
                                     <td>{{$product->id}}</td>
                                     <td>{{$product->title}}</td>
-                                    <td><img src="{{url('image-cached/110x70', $product->image)}}" /></td>
+                                    <td><img src="{{url('t/110x70', $product->image)}}" /></td>
                                     <td>
                                         <button id-attr="{{$product->id}}" class="btn btn-primary btn-sm edit-product"  type="button">Sửa</button>
                                         <br>

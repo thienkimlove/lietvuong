@@ -1,6 +1,5 @@
 <?php namespace App\Providers;
 
-use App\Banner;
 use App\Category;
 use App\Post;
 use App\Question;
@@ -29,41 +28,41 @@ class ViewComposerProvider extends ServiceProvider {
 			fclose($logFile);
 		});
 
+        view()->composer('frontend.box_mostRead', function ($view) {
 
-        view()->composer('frontend.right', function ($view) {
-			$slidePosts = Post::whereHas('modules', function($q){
-				$q->where('slug', 'tin-tuc-noi-bat')->orderBy('order');
-			})->limit(6)->get();
-            $view->with('noibat', $slidePosts);
+			$mostRead = Post::whereHas('modules', function($q){
+				$q->where('slug', 'bai-doc-nhieu-nhat')->orderBy('order');
+			})->limit(4)->get();
 
-        });
-
-        view()->composer('frontend.box_event', function ($view) {
-            $view->with('events', Post::where('status', true)->where('type', 'su-kien-nhan-hang')->latest('updated_at')->limit(3)->get());
+            $view->with(['mostRead' => $mostRead]);
 
         });
 
 		view()->composer('frontend.box_video', function ($view) {
-			$view->with('videoLists', Video::latest('updated_at')->limit(3)->get());
+			$view->with(['mostVideos' => Video::latest('updated_at')->limit(3)->get()]);
+
 		});
 
-		view()->composer('frontend.box_question', function ($view) {
-			$view->with('slideQuestions', Question::latest('updated_at')->limit(3)->get());
+		view()->composer('frontend.header', function ($view) {
+			$view->with(['categories' => Category::whereNull('parent_id')->get()]);
+
+		});
+
+		view()->composer('frontend.footer', function ($view) {
+			$view->with(['categories' => Category::whereNull('parent_id')->get()]);
+
+		});
+
+		view()->composer('frontend.box_support', function ($view) {
+
+			$view->with('homepageQuestions',Question::latest('updated_at')->limit(2)->get());
+
 		});
 
 
-		view()->composer('frontend.box_adv_normal', function ($view) {
+		view()->composer('frontend.box_adv', function ($view) {
 			$settings = Setting::lists('value', 'name');
-			$view->with('html', $settings['adv_normal']);
-		});
-
-		view()->composer('frontend.box_adv_center', function ($view) {
-			$settings = Setting::lists('value', 'name');
-			$view->with('html', $settings['adv_center']);
-		});
-		view()->composer('frontend.box_adv_hoidap', function ($view) {
-			$settings = Setting::lists('value', 'name');
-			$view->with('html', $settings['adv_hoidap']);
+			$view->with('html', $settings['box_adv']);
 		});
 
 	}

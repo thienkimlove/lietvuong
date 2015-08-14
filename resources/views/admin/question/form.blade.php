@@ -20,7 +20,7 @@
               <div class="form-group">
                   {!! Form::label('image', 'Ảnh đại diện cho cau hoi') !!}
                   @if ($question->image)
-                      <img src="{{url('image-cached/120x120/' . $question->image)}}" />
+                      <img src="{{url('t/120x120/' . $question->image)}}" />
                       <hr>
                   @endif
                   {!! Form::file('image', null, ['class' => 'form-control']) !!}

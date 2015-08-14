@@ -16,7 +16,7 @@ return array(
     |
     */
    
-    'route' => 'image-cached',
+    'route' => 't',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,49 +48,35 @@ return array(
     */
    
     'templates' => array(
-
-        '208x177' => function($image) {
-            return $image->fit(208, 177);
-        },
-        '350x289' => function($image) {
-            return $image->fit(350, 289);
-        },
-        '400x245' => function($image) {
-            return $image->fit(400, 245);
-        },
-        '200x150' => function($image) {
-            return $image->fit(200, 150);
-        },
         '120x120' => function($image) {
             return $image->fit(120, 120);
-        },
-        '509x338' => function($image) {
-            return $image->fit(509, 338);
-        },
-        '310x230' => function($image) {
-            return $image->fit(310, 230);
-        },
-        '300x177' => function($image) {
-            return $image->fit(300, 177);
         },
         '110x70' => function($image) {
             return $image->fit(110, 70);
         },
-        '218x128' => function($image) {
-            return $image->fit(218, 128);
-        },
 
+        '115x80' => function($image) {
+            return $image->fit(115, 80);
+        },
+        '220x170' => function($image) {
+            return $image->fit(220, 170);
+        },
         '220x130' => function($image) {
             return $image->fit(220, 130);
         },
-        '290x150' => function($image) {
-            return $image->fit(290, 150);
+        '335x205' => function($image) {
+            return $image->fit(335, 205);
         },
-        '303x130' => function($image) {
-            return $image->fit(303, 130);
+        '560x297' => function($image) {
+            return $image->fit(560, 297);
         },
-        '105x69' => function($image) {
-            return $image->fit(105, 69);
+
+        '206x139' => function($image) {
+            return $image->fit(206, 139);
+        },
+
+        '218x138' => function($image) {
+            return $image->fit(218, 138);
         },
 
     ),

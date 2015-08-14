@@ -11,7 +11,7 @@
 */
 use App\Category;
 use App\Post;
-use App\Product;
+
 
 Route::resource('admin/posts', 'PostsController');
 Route::resource('admin/categories', 'CategoriesController');
@@ -35,12 +35,23 @@ Route::post('registerEmail', ['as' => 'registerEmail', 'uses' => 'MainController
 Route::get('admin', 'AdminController@index');
 Route::get('tim-kiem', 'MainController@search');
 
-Route::get('san-pham/{value?}', 'MainController@product');
+Route::get('tu-khoa/{tag}', 'MainController@tag');
+
 Route::get('video/{value?}', 'MainController@video');
-Route::get('phan-phoi', 'MainController@phanphoi');
+
+
+Route::get('diem-ban', 'MainController@phanphoi');
+
 Route::get('lien-he', 'MainController@lienhe');
-
-
+Route::get('hoi-dap-chuyen-gia', function(){
+    $page = 'hoi-dap-chuyen-gia';
+    $questions = \App\Question::paginate(10);
+    return view('frontend.hoi-dap-chuyen-gia', compact('page', 'questions'))->with([
+        'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : env('WEBSITE_NAME'),
+        'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : env('WEBSITE_NAME'),
+        'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : env('WEBSITE_NAME'),
+    ]);
+});
 
 Route::get('/', 'MainController@index');
 
@@ -50,29 +61,47 @@ Route::get('{value}', function ($value) {
         $post = Post::where('slug', $matches[1])->first();
 
         return view('frontend.post_detail', compact('post', 'page'))->with([
-            'meta_title' => $post->title . ' | Giảo Cổ Lam',
+            'meta_title' => $post->title . ' | '.env('WEBSITE_NAME'),
             'meta_desc' => $post->desc,
-            'meta_keywords' => ($post->tagList) ? implode(',', $post->tagList) : 'Giảo Cổ Lam, huongdan, bai viet',
+            'meta_keywords' => ($post->tagList) ? implode(',', $post->tagList) : env('WEBSITE_NAME').', huongdan, bai viet',
         ]);
     } else {
-        $page = $value;
+        if (in_array($value, ['san-pham', 'thong-tin-san-pham'])) {
+            $page = 'san-pham';
+            $category = Category::where('slug', 'thong-tin-san-pham')->first();
+            $post = Post::where('category_id', $category->id)->first();
 
-        if ($value == 'hoi-dap-chuyen-gia') {
-            $questions = \App\Question::paginate(10);
-            return view('frontend.'.$value, compact('page', 'questions'))->with([
-                'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : 'Giảo Cổ Lam',
-                'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : 'Giảo Cổ Lam',
-                'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
+            return view('frontend.post_detail', compact('post', 'page'))->with([
+                'meta_title' => 'Thông tin sản phẩm | '.env('WEBSITE_NAME'),
+                'meta_desc' => 'Thông tin sản phẩm',
+                'meta_keywords' => env('WEBSITE_NAME').', Thông tin sản phẩm',
             ]);
+
         }
         $category = Category::where('slug', $value)->first();
+        if ($category->parent_id) {
+            $page = $category->parent->slug;
+            $whereConditions = Post::where('status', true)
+                ->where('category_id', $category->id);
+
+        } else {
+            $page = $category->slug;
+            $whereConditions = Post::where('status', true)
+                ->whereIn('category_id', $category->subCategories->lists('id'));
+        }
+        $topPosts = $whereConditions->whereHas('modules', function($q){
+            $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
+               })
+            ->limit(5)
+            ->get();
+        $posts = $whereConditions->paginate(8);
 
         return view('frontend.category', compact(
-            'category', 'page'
+            'category', 'page', 'topPosts', 'posts'
         ))->with([
-            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : $category->name.' | Giảo Cổ Lam',
-            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : $category->name.' Giảo Cổ Lam',
-            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : 'Giảo Cổ Lam',
+            'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : $category->name.' | '.env('WEBSITE_NAME'),
+            'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : $category->name.' '.env('WEBSITE_NAME'),
+            'meta_keywords' => (!empty($settings['meta_keywords'])) ? $settings['meta_keywords'] : env('WEBSITE_NAME'),
         ]);
     }
 });

@@ -20,7 +20,10 @@ class PostsController extends BaseController {
         $this->middleware('admin');
 
         $this->modules = [
-            'best-news-trang-chu' => 'Hiện thị trang chủ',
+            'bai-doc-nhieu-nhat' => 'Hiện thị Bài đọc nhiều nhất',
+            'phi-tien-liet-tuyen-trang-chu' => 'Hiện Box thị Phì tiền liệt Trang chủ',
+            'dinh-duong-trang-chu' => 'Hiện thị Box Dinh dưỡng trang chủ',
+            'hien-thi-chuyen-muc' => 'Hiện thị Top Chuyên mục',
         ];
 
 
@@ -108,6 +111,7 @@ class PostsController extends BaseController {
             'content' => $request->input('content'),
             'image' => ($request->file('image') && $request->file('image')->isValid()) ? $this->saveImage($request->file('image')) : '',
             'status' => ($request->input('status') == 'on') ? true : false,
+            'city' => $request->input('city')
         ];
 
         $post = Post::create($insert);
@@ -142,6 +146,7 @@ class PostsController extends BaseController {
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),
             'status' => ($request->input('status') == 'on') ? true : false,
+            'city' => $request->input('city')
         ];
         if ($request->file('image') && $request->file('image')->isValid()) {
             $update['image'] = $this->saveImage($request->file('image'), $post->image);
