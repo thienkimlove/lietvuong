@@ -79,33 +79,33 @@ Route::get('{value}', function ($value) {
 
         }
         $category = Category::where('slug', $value)->first();
-        if ($category->parent_id) {
-            $page = $category->parent->slug;
-            $whereConditions = [
-                'status' => true,
-                'category_id' => $category->id
-            ];
+        $page = ($category->parent_id) ? $category->parent->slug : $category->slug;
+        if ($category->parent_id || $category->subCategories->count() == 0) {
+
+            $topPosts = Post::where('status', true)
+                ->where('category_id', $category->id)
+                ->whereHas('modules', function($q){
+                $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
+            })
+                ->limit(5)
+                ->get();
+            $posts = Post::where('status', true)
+                ->where('category_id', $category->id)
+                ->paginate(8);
+
         } else {
-            $page = $category->slug;
-            if ($category->subCategories->count() > 0) {
-                $whereConditions = [
-                    'status' => true,
-                    'category_id' => $category->subCategories->lists('id')
-                ];
-            } else {
-                $whereConditions = [
-                    'status' => true,
-                    'category_id' => $category->id
-                ];
-            }
+            $topPosts = Post::where('status', true)
+                ->whereIn('category_id', $category->subCategories->lists('id'))
+                ->whereHas('modules', function($q){
+                    $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
+                })
+                ->limit(5)
+                ->get();
+            $posts = Post::where('status', true)
+                ->whereIn('category_id', $category->subCategories->lists('id'))
+                ->paginate(8);
 
         }
-        $topPosts = Post::where($whereConditions)->whereHas('modules', function($q){
-            $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
-               })
-            ->limit(5)
-            ->get();
-        $posts = Post::where($whereConditions)->paginate(8);
 
         return view('frontend.category', compact(
             'category', 'page', 'topPosts', 'posts'
