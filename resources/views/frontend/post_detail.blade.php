@@ -24,7 +24,7 @@
                         <img src="{{url('images/social01.jpg')}}" alt="">
                     </div>
                     <div class="box-product">
-                        <h3 class="head">Sản phẩm liên quan</h3>
+                        <h3 class="head">Tin liên quan</h3>
                         <div class="owl-carousel" id="slide-product">
                             @foreach ($post->related as $rPost)
                             <div class="item">
