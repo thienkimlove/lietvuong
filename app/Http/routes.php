@@ -86,8 +86,14 @@ Route::get('{value}', function ($value) {
 
         } else {
             $page = $category->slug;
-            $whereConditions = Post::where('status', true)
-                ->whereIn('category_id', $category->subCategories->lists('id'));
+            if ($category->subCategories->count() > 0) {
+                $whereConditions = Post::where('status', true)
+                    ->whereIn('category_id', $category->subCategories->lists('id'));
+            } else {
+                $whereConditions = Post::where('status', true)
+                    ->where('category_id', $category->id);
+            }
+
         }
         $topPosts = $whereConditions->whereHas('modules', function($q){
             $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
