@@ -81,26 +81,31 @@ Route::get('{value}', function ($value) {
         $category = Category::where('slug', $value)->first();
         if ($category->parent_id) {
             $page = $category->parent->slug;
-            $whereConditions = Post::where('status', true)
-                ->where('category_id', $category->id);
-
+            $whereConditions = [
+                'status' => true,
+                'category_id' => $category->id
+            ];
         } else {
             $page = $category->slug;
             if ($category->subCategories->count() > 0) {
-                $whereConditions = Post::where('status', true)
-                    ->whereIn('category_id', $category->subCategories->lists('id'));
+                $whereConditions = [
+                    'status' => true,
+                    'category_id' => $category->subCategories->lists('id')
+                ];
             } else {
-                $whereConditions = Post::where('status', true)
-                    ->where('category_id', $category->id);
+                $whereConditions = [
+                    'status' => true,
+                    'category_id' => $category->id
+                ];
             }
 
         }
-        $topPosts = $whereConditions->whereHas('modules', function($q){
+        $topPosts = Post::where($whereConditions)->whereHas('modules', function($q){
             $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
                })
             ->limit(5)
             ->get();
-        $posts = $whereConditions->paginate(8);
+        $posts = Post::where($whereConditions)->paginate(8);
 
         return view('frontend.category', compact(
             'category', 'page', 'topPosts', 'posts'
