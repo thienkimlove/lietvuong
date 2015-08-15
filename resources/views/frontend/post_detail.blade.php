@@ -32,7 +32,7 @@
                                     <img src="{{url('t/218x138', $rPost->image)}}"  alt="{{$rPost->title}}"/>
                                 </a>
                                 <h3>
-                                    <a href="{{url($rPost->slug.'.html')}}" title="{{$rPost->title}}">{{str_limit($rPost->title, 40)}}</a>
+                                    <a href="{{url($rPost->slug.'.html')}}" title="{{$rPost->title}}">{{$rPost->title}}</a>
                                 </h3>
                             </div>
                             @endforeach

@@ -10,7 +10,7 @@
                             <img src="{{url('t/560x297', $videoMain->image)}}" alt="{{$videoMain->title}}"/>
                         </a>
                         <h3>
-                            <a href="{{url('video', $videoMain->slug)}}" title="{{$videoMain->title}}">{{str_limit($videoMain->title, 40)}}</a>
+                            <a href="{{url('video', $videoMain->slug)}}" title="{{$videoMain->title}}">{{str_limit($videoMain->title, env('TITLE_TRIM'))}}</a>
                         </h3>
                     </article>
                 </div><!--//box-consult-->
@@ -24,7 +24,7 @@
                                 </a>
                                 <h3>
                                     <a href="{{url('video', $video->slug)}}" title="{{$video->title}}">
-                                        {{str_limit($video->title, 40)}}
+                                        {{str_limit($video->title, env('TITLE_TRIM'))}}
                                     </a>
                                 </h3>
                             </div>
@@ -45,7 +45,7 @@
                                             <img src="{{url('t/335x205', $video->image)}}" alt="{{$video->title}}">
                                         </a>
                                         <h3>
-                                            <a href="{{url('video', $video->slug)}}" class="thumb">{{str_limit($video->title, 40)}}</a>
+                                            <a href="{{url('video', $video->slug)}}" class="thumb">{{str_limit($video->title, env('TITLE_TRIM'))}}</a>
                                         </h3>
                                     </div>
                                 @endforeach

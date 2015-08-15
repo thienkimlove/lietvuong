@@ -16,7 +16,7 @@
                                     <img src="{{url('t/335x205', $post->image)}}" alt="{{$post->title}}">
                                 </a>
                                 <h3>
-                                    <a href="{{url($post->slug.'.html')}}" class="thumb">{{str_limit($post->title, 40)}}</a>
+                                    <a href="{{url($post->slug.'.html')}}" class="thumb">{{str_limit($post->title, env('TITLE_TRIM'))}}</a>
                                 </h3>
                             </div>
                             @endforeach

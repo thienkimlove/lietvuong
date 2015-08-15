@@ -8,7 +8,7 @@
                 <a href="{{url($post->slug.'.html')}}" class="thumb">
                     <img src="{{url('t/115x80', $post->image)}}"  alt="{{$post->title}}">
                 </a>
-                <p>{{str_limit($post->title, 40)}}</p>
+                <p>{{str_limit($post->title, env('TITLE_TRIM'))}}</p>
                 <a href="{{url($post->slug.'.html')}}">Xem thêm</a>
             </div>
         @endforeach

@@ -10,7 +10,7 @@
                             <img src="{{url('t/560x297', $first->image)}}" alt="{{$first->title}}"/>
                         </a>
                         <h3>
-                            <a href="{{url($first->slug.'.html')}}" title="{{$first->title}}">{{str_limit($first->title, 40)}}</a>
+                            <a href="{{url($first->slug.'.html')}}" title="{{$first->title}}">{{str_limit($first->title, env('TITLE_TRIM'))}}</a>
                         </h3>
                     </article>
                 </div><!--//box-consult-->
@@ -24,7 +24,7 @@
                             </a>
                             <h3>
                                 <a href="{{url($post->slug.'.html')}}" title="{{$post->title}}">
-                                   {{str_limit($post->title, 40)}}
+                                   {{str_limit($post->title, env('TITLE_TRIM'))}}
                                 </a>
                             </h3>
                         </div>
@@ -45,7 +45,7 @@
                                             <img src="{{url('t/335x205', $post->image)}}" alt="{{$post->title}}">
                                         </a>
                                         <h3>
-                                            <a href="{{url($post->slug.'.html')}}" class="thumb">{{str_limit($post->title, 40)}}</a>
+                                            <a href="{{url($post->slug.'.html')}}" class="thumb">{{str_limit($post->title, env('TITLE_TRIM'))}}</a>
                                         </h3>
                                     </div>
                                 @endforeach

@@ -11,7 +11,7 @@
     @endif
     <ul class="list-video">
         @foreach ($mostVideos as $video)
-            <li><a href="{{url('video', $video->slug)}}">{{str_limit($video->title, 40)}}</a></li>
+            <li><a href="{{url('video', $video->slug)}}">{{str_limit($video->title, env('TITLE_TRIM'))}}</a></li>
         @endforeach
     </ul>
 </div>
