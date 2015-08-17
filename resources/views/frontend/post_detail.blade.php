@@ -4,6 +4,9 @@
         <div class="fix">
             <div class="main-content mt30">
                 <div class="col-left">
+                    <h3 class="title">
+                        <span>{{$post->title}}</span>
+                    </h3>
                     <article class="detail">{!! $post->content !!}</article>
                     <div class="box-share">
                         <div class="item">

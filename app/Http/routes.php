@@ -57,8 +57,13 @@ Route::get('/', 'MainController@index');
 
 Route::get('{value}', function ($value) {
     if (preg_match('/([a-z0-9\-]+)\.html/', $value, $matches)) {
-        $page = 'post_detail';
         $post = Post::where('slug', $matches[1])->first();
+
+        if ($post->category->parent_id) {
+            $page = $post->category->parent->slug;
+        } else {
+            $page = $post->category->slug;
+        }
 
         return view('frontend.post_detail', compact('post', 'page'))->with([
             'meta_title' => $post->title . ' | '.env('WEBSITE_NAME'),
