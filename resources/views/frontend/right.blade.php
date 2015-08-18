@@ -5,7 +5,7 @@
 
     <div class="form-question">
         <div class="avartar">
-            <img src="{{url('images/avatar.jpg')}}" alt="">
+            <img src="{{url('images/number.jpg')}}" alt="">
         </div>
         <div class="title">
             Hỏi đáp chuyên gia
@@ -36,7 +36,7 @@
             Bài thuốc trên facebook
         </h3>
         <div class="item">
-            <img src="{{url('images/social.jpg')}}" alt="">
+            <div class="fb-page" data-href="https://www.facebook.com/tienlietvuong.vn" data-width="300" data-height="274" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tienlietvuong.vn"><a href="https://www.facebook.com/tienlietvuong.vn">Tuệ Linh</a></blockquote></div></div>
         </div>
     </div>
 </div><!--//col-right-->

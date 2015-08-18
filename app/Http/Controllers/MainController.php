@@ -20,7 +20,7 @@ class MainController extends Controller
     public function index()
     {
         $page = 'index';
-        $settings = Setting::lists('value', 'name');
+
         $listPosts = Post::where('status', true)
             ->whereHas('modules', function($q){
             $q->where('slug', 'phi-tien-liet-tuyen-trang-chu')->orderBy('order');
@@ -34,8 +34,10 @@ class MainController extends Controller
             ->limit(3)
             ->get();
 
+        $settings = Setting::lists('value', 'name');
+
         return view('frontend.index', compact(
-            'page', 'listPosts', 'listProducts'
+            'page', 'listPosts', 'listProducts', 'settings'
         ))->with([
             'meta_title' => (!empty($settings['meta_title'])) ? $settings['meta_title'] : env('WEBSITE_NAME'),
             'meta_desc' => (!empty($settings['meta_desc'])) ? $settings['meta_desc'] : env('WEBSITE_NAME'),

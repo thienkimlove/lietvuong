@@ -13,25 +13,24 @@
                         </div>
                         <h3>Công ty TNHH Tuệ Linh</h3>
                         <ul class="list-contact">
-                            <li><span class="icon-1"></span>Địa chỉ: Số xxx</li>
-                            <li><span class="icon-2"></span>Điện thoại: xxx</li>
-                            <li><span class="icon-3"></span>Fax: 0xxx</li>
+                            <li><span class="icon-2"></span>Điện thoại: (04) 62824344</li>
+                            <li><span class="icon-3"></span>Fax: (04) 62824263</li>
                         </ul>
                         <h3>Tại Hà Nội</h3>
                         <p>
-                            Tầng 5 tòa nhà Bê Tông, Hoàng Đạo Thúy, Trung Hòa, Cầu Giấy, Hà nội
+                            Tầng 5 tòa nhà 29T1, phố Hoàng Đạo Thúy, Trung Hòa, Cầu Giấy, Hà Nội
                         </p>
                         <ul class="list-contact">
-                            <li><span class="icon-2"></span>Điện thoại: xxx</li>
-                            <li><span class="icon-3"></span>Fax: 0xxx</li>
+                            <li><span class="icon-2"></span>Điện thoại: (04) 62824344</li>
+                            <li><span class="icon-3"></span>Fax: (04) 62824263</li>
                         </ul>
                         <h3>Tại Hồ Chí Minh</h3>
                         <p>
-                            Tầng 5 tòa nhà Bê Tông, Hoàng Đạo Thúy, Trung Hòa, Cầu Giấy, Hà nội
+                            156/17 Tô Hiến Thành - P15 - Q10 - TP.HCM
                         </p>
                         <ul class="list-contact">
-                            <li><span class="icon-2"></span>Điện thoại: xxx</li>
-                            <li><span class="icon-3"></span>Fax: 0xxx</li>
+                            <li><span class="icon-2"></span>Điện thoại: (083) 9797779</li>
+                            <li><span class="icon-3"></span>Fax: (086) 2646832</li>
                         </ul>
                     </div>
                     <div class="box-map">

@@ -33,10 +33,7 @@
             <div class="item item-3">
                 <div class="head">LIÊN HỆ</div>
                 <ul class="nav-footer">
-                    <li> Điện thoại: 0912 001 002</li>
-                    <li>
-                        Email: <a href="mailto:info@gmail.com" title="info@gmail.com">info@gmail.com</a>
-                    </li>
+                    <li>Hotline: 0912571190 - 19006482</li>
                 </ul>
             </div>
 

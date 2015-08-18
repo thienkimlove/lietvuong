@@ -10,7 +10,7 @@
                     <article class="detail">{!! $post->content !!}</article>
                     <div class="box-share">
                         <div class="item">
-                            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+                            <div class="fb-share-button" data-href="https://www.facebook.com/tienlietvuong.vn" data-layout="button_count"></div>
                         </div>
                         <div class="item">
                             <div class="g-plusone" data-size="medium"></div>
@@ -24,7 +24,7 @@
                         @endforeach
                     </div><!--//box-tags-->
                     <div class="social-follow">
-                        <img src="{{url('images/social01.jpg')}}" alt="">
+                        <div class="fb-comments" data-href="http://www.tienlietvuong.vn" data-width="500" data-numposts="5"></div>
                     </div>
                     <div class="box-product">
                         <h3 class="head">Tin liên quan</h3>

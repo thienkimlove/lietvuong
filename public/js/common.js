@@ -64,6 +64,8 @@
         $('#slide-homepage').owlCarousel({
             loop:true,
             margin:0,
+            autoplay: true,
+            autoplayTimeout: 5000,
             responsiveClass:true,
             responsive:{
                 0:{

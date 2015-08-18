@@ -6,12 +6,12 @@
                 <div class="owl-carousel" id="slide-homepage">
                     <div class="item">
                         <a class="thumb" href="" title="">
-                            <img src="{{url('images/banner01.jpg')}}"/>
+                            <img src="{{ $settings['index_slide_banner1'] }}"/>
                         </a>
                     </div>
                     <div class="item">
                         <a class="thumb" href="" title="">
-                            <img src="{{url('images/banner01.jpg')}}"/>
+                            <img src="{{ $settings['index_slide_banner2'] }}"/>
                         </a>
                     </div>
                 </div>
