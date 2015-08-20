@@ -28,7 +28,7 @@
                                 <article class="item">
                                     <a href="{{url($post->slug.'.html')}}"><img src="{{url('t/220x170', $post->image)}}"  alt=""></a>
                                     <div class="desc">
-                                        <h3>{{str_limit($post->title, env('TITLE_TRIM'))}}</h3>
+                                        <h3><a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, env('TITLE_TRIM'))}}</a></h3>
                                         <p>{{str_limit($post->desc, env('DESC_TRIM'))}}</p>
                                     </div>
                                 </article>
@@ -47,7 +47,7 @@
                                 <article class="item">
                                     <a href="{{url($post->slug.'.html')}}"><img src="{{url('t/220x170', $post->image)}}" alt=""></a>
                                     <div class="desc">
-                                        <h3>{{str_limit($post->title, env('TITLE_TRIM'))}}</h3>
+                                        <h3><a href="{{url($post->slug.'.html')}}">{{str_limit($post->title, env('TITLE_TRIM'))}}</a></h3>
                                         <p>{{str_limit($post->desc, env('DESC_TRIM'))}}</p>
                                     </div>
                                 </article>

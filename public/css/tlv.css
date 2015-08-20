@@ -1315,11 +1315,16 @@ img {
   padding: 20px 35px;
   background: #fff;
   border: 2px solid #3a8acc;
+  height: 330px;
+  overflow: hidden;
 }
 .box-question .item h3, .form-question .item h3 {
   font-size: 16px;
   font-weight: normal;
   color: #3a8acc;
+}
+.box-question .item p, .form-question .item p {
+  padding-bottom: 20px;
 }
 .box-question .owl-controls .owl-nav .owl-prev, .form-question .owl-controls .owl-nav .owl-prev {
   background: url(../images/sprite.png) no-repeat -360px -25px;
@@ -1338,7 +1343,7 @@ img {
   background-position: -423px -25px;
 }
 .box-question .btn-ask, .form-question .btn-ask {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .box-question .btn-ask h3, .form-question .btn-ask h3 {
   text-align: center;
@@ -1556,7 +1561,7 @@ img {
 }
 #accordion .answer {
   font-weight: bold;
-  float: left;
+  float: right;
 }
 
 .box-faq .item {
@@ -2544,6 +2549,13 @@ img {
 }
 .box-member .data .item a {
   display: block;
+  background: url(../images/icon_other.jpg) no-repeat 0 center;
+  padding-left: 10px;
+  color: #333;
+  font-size: 12px;
+}
+.box-member .data .item a:hover {
+  color: #fcaf17;
 }
 
 .box-contact {

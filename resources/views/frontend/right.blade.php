@@ -32,9 +32,6 @@
         </script>
     </div>
     <div class="box-social">
-        <h3 class="global-title">
-            Bài thuốc trên facebook
-        </h3>
         <div class="item">
             <div class="fb-page" data-href="https://www.facebook.com/tuelinh.vn" data-width="300" data-height="274" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tuelinh.vn"><a href="https://www.facebook.com/tuelinh.vn">Tuệ Linh</a></blockquote></div></div>
         </div>

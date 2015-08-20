@@ -1,3 +1,3 @@
 <div class="box-adv">
-    <a href="{{url('/')}}"><img src="{{url('images/diemban.png')}}" /></a>
+    <a href="{{url('diem-ban')}}"><img src="{{url('images/diemban.png')}}" /></a>
 </div>
