@@ -6,9 +6,7 @@
 
                 <div class="top-news">
                     <article class="item">
-                        <a href="{{url('video', $videoMain->slug)}}" title="top">
-                            <img src="{{url('t/560x297', $videoMain->image)}}" alt="{{$videoMain->title}}"/>
-                        </a>
+                        <iframe width="560" height="297" src="{{$videoMain->url}}" frameborder="0" allowfullscreen></iframe>
                         <h3>
                             <a href="{{url('video', $videoMain->slug)}}" title="{{$videoMain->title}}">{{str_limit($videoMain->title, env('TITLE_TRIM'))}}</a>
                         </h3>
