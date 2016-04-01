@@ -1,9 +1,9 @@
 <header class="header">
     <div class="header-mid">
         <div class="fix">
-            <h1>
-                <a href="" title="" class="logo"><img src="{{url('images/logo.png')}}" alt="{{env('WEBSITE_NAME')}}"></a>
-            </h1>
+        <div class="logoTlv">
+            <a href="" title="" class="logo">Tiền Liệt Vương</a>
+          </div>
             <div class="search">
                 {!! Form::open(['method' => 'GET', 'url' =>  url('tim-kiem') ]) !!}
                     <input type="text" placeholder="Từ khóa tìm kiếm" name="q" class="txt">

@@ -33,7 +33,7 @@
     </div>
     <div class="box-social">
         <div class="item">
-            <div class="fb-page" data-href="https://www.facebook.com/tuelinh.vn" data-width="300" data-height="274" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tuelinh.vn"><a href="https://www.facebook.com/tuelinh.vn">Tuệ Linh</a></blockquote></div></div>
+            <div class="fb-page" data-href="https://www.facebook.com/Ti%E1%BB%81n-Li%E1%BB%87t-V%C6%B0%C6%A1ng-901499823258621" data-width="300" data-height="274" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Ti%E1%BB%81n-Li%E1%BB%87t-V%C6%B0%C6%A1ng-901499823258621"><a href="https://www.facebook.com/Ti%E1%BB%81n-Li%E1%BB%87t-V%C6%B0%C6%A1ng-901499823258621">Tiền Liệt Vương</a></blockquote></div></div>
         </div>
     </div>
 </div><!--//col-right-->

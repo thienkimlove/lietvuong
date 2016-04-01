@@ -7,6 +7,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:700italic,800italic,700,800&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{url('css/tlv.css')}}" type="text/css"/>
     <meta content='CSVN' name='generator'/>
+	<meta content='1571372846430003' property='fb:app_id'/>
     <title>{{empty($meta_title)? env('WEBSITE_NAME') : $meta_title}}</title>
     <meta property="og:title" content="{{empty($meta_title)? env('WEBSITE_NAME') : $meta_title}}">
     <meta property="og:description" content="{{empty($meta_desc)? env('WEBSITE_NAME') : $meta_desc}}">
@@ -14,7 +15,7 @@
     <meta property="og:url" content="{{Request::url()}}">
     <meta property="og:image" content="{{ empty($meta_image) ? url('images/logo.png') : $meta_image  }}">
     <meta property="og:site_name" content="Tên website">
-
+    
     <meta name="twitter:card" content="Card">
     <meta name="twitter:url" content="{{Request::url()}}">
     <meta name="twitter:title" content="{{empty($meta_title)? env('WEBSITE_NAME') : $meta_title}}">
@@ -37,6 +38,8 @@
     <meta name="COPYRIGHT" content="Copyright 2013 by Goethe"/>
     <meta name="Googlebot" content="index,follow,archive" />
     <meta name="RATING" content="GENERAL"/>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!--[if lte IE 8]>
     <script src="{{url('js/html5.js')}}" type="text/javascript"></script>
     <![endif]-->

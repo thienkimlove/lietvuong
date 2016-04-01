@@ -268,10 +268,10 @@ img {
   min-height: 85px;
   padding: 20px 0;
 }
-.header-mid h1 {
+.header-mid .logoTlv {
   float: left;
 }
-.header-mid h1 .logo {
+.header-mid .logoTlv .logo {
   width: 395px;
   height: 120px;
   text-indent: -9090px;
@@ -1003,7 +1003,6 @@ img {
   padding-left: 10px;
 }
 .main-content .col-left .detail {
-  float: left;
   margin: 10px 0;
 }
 .main-content .col-left .detail p {
@@ -2546,13 +2545,15 @@ img {
 .box-member .data .item {
   float: left;
   width: 18.75%;
+  margin-bottom: 10px;
 }
 .box-member .data .item a {
   display: block;
-  background: url(../images/icon_other.jpg) no-repeat 0 center;
+  background: url(../images/icon_other.jpg) no-repeat 0 7px;
   padding-left: 10px;
   color: #333;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 22px;
 }
 .box-member .data .item a:hover {
   color: #fcaf17;

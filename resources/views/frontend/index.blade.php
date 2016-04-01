@@ -20,8 +20,7 @@
                 <div class="col-left">
                     <div class="box-third cf">
                         <h3 class="title">
-                            <span>Phì đại tiền liệt tuyến</span>
-                        </h3>
+                            <a href="http://www.tienlietvuong.vn/phi-dai-tien-liet-tuyen" target="_blank" style="color:#0294df"><span>Phì đại tiền liệt tuyến</span></a>                        </h3>
                         <div class="list-product">
                             <div class="row">
                                 @foreach($listPosts as $post)
@@ -39,8 +38,7 @@
                     </div>
                     <div class="box-third cf">
                         <h3 class="title">
-                            <span>Dinh dưỡng</span>
-                        </h3>
+                            <span><a href="http://www.tienlietvuong.vn/dinh-duong" target="_blank" style="color:#0294df">Dinh dưỡng</a></span>                        </h3>
                         <div class="list-product">
                             <div class="row">
                                 @foreach ($listProducts as $post)
