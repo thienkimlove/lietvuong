@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*
 Theme Name: Theme name
 Theme URI: Theme URI
@@ -1020,7 +1020,7 @@ img {
   padding: 20px 10px;
 }
 .main-content .col-right .box-news .data .item {
-  float: left;
+  /*float: left;*/
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #fafafa;
@@ -1314,7 +1314,7 @@ img {
   padding: 20px 35px;
   background: #fff;
   border: 2px solid #3a8acc;
-  height: 330px;
+  height: 115px;
   overflow: hidden;
 }
 .box-question .item h3, .form-question .item h3 {
@@ -3015,8 +3015,10 @@ img {
     width: 100%;
   }
   .main-content .col-left .list-product .item > a {
-    float: left;
-    margin-right: 10px;
+    float: none
+    margin-right: 0;
+    display: block;
+    text-align: center;
   }
   .main-content .col-left .list-product .item .desc {
     margin-top: 0;
@@ -3194,7 +3196,7 @@ img {
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .box-form .txt-content, .box-form .txt-name, .box-form .txt-email, .box-form .btn-submit {
+  .box-form .txt-content, .box-form .txt-name, .box-form .txt-email, .box-form .btn-submit, .box-form .txt-phone{
     width: 100%;
     margin-left: 0;
     margin-bottom: 5px;

@@ -35,7 +35,7 @@
                         @endforeach
                     </div><!--//box-tags-->
                     <div class="social-follow">
-                        <div class="fb-comments" data-href="http://www.tienlietvuong.vn" data-width="500" data-numposts="5"></div>
+                        <div class="fb-comments" data-href="{{url($post->slug.'.html')}}" data-numposts="5"></div>
 						<div class="g-plusone" data-annotation="inline" data-width="500"></div>
 						<div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/0/114782125946920177277" data-rel="publisher"></div>
 						<div id="fb-root"></div>

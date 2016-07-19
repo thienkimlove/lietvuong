@@ -1,4 +1,4 @@
-<div class="box-support">
+﻿<div class="box-support">
     <div class="fix">
         <div class="col">
             <div class="box-consult">
@@ -23,10 +23,10 @@
                     <div class="owl-carousel" id="slide-question">
                         @foreach ($homepageQuestions as $question)
                         <div class="item clearFix">
-                            <h3>
-                                <span>{{$question->question}}</span>
-                            </h3>
-                            <p>{{$question->answer}}</p>
+                            <h4>
+                                <span><a href="{{url('hoi-dap-chuyen-gia')}}" title="Question">{{$question->question}}</a></span>
+                            </h4>
+                            
                         </div>
                         @endforeach
                     </div>
