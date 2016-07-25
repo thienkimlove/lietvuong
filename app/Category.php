@@ -46,12 +46,12 @@ class Category extends Model implements SluggableInterface {
         if ($this->parent_id || $this->subCategories()->count() == 0) {
             return Post::where('status', true)->where('category_id', $this->id)->whereHas('modules', function ($query) {
                 $query->where('slug', 'chuyen-muc-trang-chu');
-            })->limit(3)->get();
+            })->latest('updated_at')->limit(3)->get();
         } else {
             $subCategories = $this->subCategories()->lists('id');
             return Post::where('status', true)->whereIn('category_id', $subCategories)->whereHas('modules', function ($query) {
                 $query->where('slug', 'chuyen-muc-trang-chu');
-            })->limit(3)->get();
+            })->latest('updated_at')->limit(3)->get();
 
         }
     }
@@ -61,7 +61,7 @@ class Category extends Model implements SluggableInterface {
     {
         return $this->hasMany('App\Post')->where('status', true)->whereHas('modules', function ($query) {
             $query->where('modules.slug', '=', 'chuyen-muc-trang-chu');
-        })->limit(3);
+        })->latest('updated_at')->limit(3);
     }
     /**
      * category have many posts.
@@ -69,7 +69,7 @@ class Category extends Model implements SluggableInterface {
      */
     public function posts()
     {
-       return $this->hasMany('App\Post')->where('status', true);
+       return $this->hasMany('App\Post')->where('status', true)->latest('updated_at');
     }
 
     public function getPaginateAttribute()
@@ -84,7 +84,7 @@ class Category extends Model implements SluggableInterface {
     public function getCitiesAttribute()
     {
         if ($this->parent_id) {
-            return $this->posts()->where('category_id', $this->id)->get();
+            return $this->posts()->where('category_id', $this->id)->latest('updated_at')->get();
         } else {
             return;
         }

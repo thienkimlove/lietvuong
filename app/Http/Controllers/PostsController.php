@@ -106,6 +106,7 @@ class PostsController extends BaseController {
        // dd($request->all());
         $insert = [
             'title' => $request->input('title'),
+            'seo_title' => $request->input('seo_title'),
             'category_id' => $request->input('category_id'),
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),
@@ -142,6 +143,7 @@ class PostsController extends BaseController {
         $post = Post::find($id);
         $update = [
             'title' => $request->input('title'),
+            'seo_title' => $request->input('seo_title'),
             'category_id' => $request->input('category_id'),
             'desc' => $request->input('desc'),
             'content' => $request->input('content'),

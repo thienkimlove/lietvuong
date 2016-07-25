@@ -26,7 +26,8 @@ class Post extends Model implements SluggableInterface {
         'content',
         'image',
         'city',
-        'status'
+        'status',
+        'seo_title'
     ];
 
     /**
@@ -88,6 +89,7 @@ class Post extends Model implements SluggableInterface {
         return Post::where('category_id', $this->category_id)
              ->where('id', '!=', $this->id)
              ->where('status', true)
+             ->latest('updated_at')
              ->limit(6)
              ->get();
     }

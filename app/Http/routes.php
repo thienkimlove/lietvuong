@@ -66,7 +66,7 @@ Route::get('{value}', function ($value) {
         }
 
         return view('frontend.post_detail', compact('post', 'page'))->with([
-            'meta_title' => $post->title . ' | '.env('WEBSITE_NAME'),
+            'meta_title' => ($post->seo_title) ? $post->seo_title : $post->title . ' | '.env('WEBSITE_NAME'),
             'meta_desc' => $post->desc,
             'meta_keywords' => ($post->tagList) ? implode(',', $post->tagList) : env('WEBSITE_NAME').', huongdan, bai viet',
         ]);
@@ -74,7 +74,7 @@ Route::get('{value}', function ($value) {
         if (in_array($value, ['san-pham', 'thong-tin-san-pham'])) {
             $page = 'san-pham';
             $category = Category::where('slug', 'thong-tin-san-pham')->first();
-            $post = Post::where('category_id', $category->id)->first();
+            $post = Post::where('category_id', $category->id)->latest('updated_at')->first();
 
             return view('frontend.post_detail', compact('post', 'page'))->with([
                 'meta_title' => 'Thông tin sản phẩm | '.env('WEBSITE_NAME'),
@@ -92,10 +92,12 @@ Route::get('{value}', function ($value) {
                 ->whereHas('modules', function($q){
                 $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
             })
+                ->latest('updated_at')
                 ->limit(5)
                 ->get();
             $posts = Post::where('status', true)
                 ->where('category_id', $category->id)
+                ->latest('updated_at')
                 ->paginate(8);
 
         } else {
@@ -104,9 +106,11 @@ Route::get('{value}', function ($value) {
                 ->whereHas('modules', function($q){
                     $q->where('slug', 'hien-thi-chuyen-muc')->orderBy('order');
                 })
+                ->latest('updated_at')
                 ->limit(5)
                 ->get();
             $posts = Post::where('status', true)
+                ->latest('updated_at')
                 ->whereIn('category_id', $category->subCategories->lists('id'))
                 ->paginate(8);
 
